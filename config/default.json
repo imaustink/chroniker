@@ -1,0 +1,42 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "secret": "07b47e9a1cfc16f6694bedc66d961a37f19cd73cb797d898f128623d2c1e8e1063e86edb7e86b445d6fbd9b898b3686f878d696e6f3bf4ef7526d6eb20a8bd3cb26e94ac2938b164a65ba3ecf4e69d418c29ad51f3db5bad657f065db215e667adb7b835969b36a299efd9a1b843c171fd3d017407a7349163c1d7cdd5d5444b4c199d3a71e987a58ce7986530ac977c55b1563e28ac6582c42150c55e11f4c9c1bc080623140184b20f9287aa0ff68daffa8b785355b01613b04ae7a259ec9fc51a0d5ce62c574e9e05c8565d8714c92535e681bcd338886916a908f33f514ffa146301bbdf803139382b59ddd6991fc5c60ded3650cc056f1faf1795e6aeca",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  },
+  "nedb": "../data",
+  "chroniker": {
+    "plugins": [{
+      "name": "chroniker-plugin-rachio"
+    }]
+  },
+  "rachio": {
+    "token": "RACHIO_API_TOKEN"
+  }
+}
